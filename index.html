@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داروخانه گیاه پزشکی طلای سبز</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-main: #2E8B57;
+            --green-dark: #1B5E3B;
+            --green-light: #A8E6CF;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --bg: #F7FBF9;
+            --text: #1A1A1A;
+            --text-light: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+            color: white;
+            padding: 2.2rem 1.2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+        }
+
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border: 3px solid var(--gold);
+            overflow: hidden;
+            padding: 3px;
+        }
+
+        .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 1.5rem 1.1rem 2.5rem;
+        }
+
+        /* About Card */
+        .about-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.4rem 1.3rem;
+            margin-bottom: 1.4rem;
+            box-shadow: 0 4px 18px rgba(46, 139, 87, 0.08);
+            border: 1px solid rgba(46, 139, 87, 0.12);
+            position: relative;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-main), var(--gold));
+            border-radius: 16px 16px 0 0;
+        }
+
+        .about-card p {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            text-align: justify;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #f0f9f4, #e8f5ee);
+            border-radius: 12px;
+            padding: 0.9rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: 1px solid rgba(46, 139, 87, 0.15);
+        }
+
+        .contact-box .icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-box .info {
+            flex: 1;
+        }
+
+        .contact-box .label {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-bottom: 0.15rem;
+        }
+
+        .contact-box .number {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            direction: ltr;
+            unicode-bidi: isolate;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .contact-box a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--green-dark);
+            margin: 1.6rem 0 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--green-light), transparent);
+        }
+
+        /* Channel Buttons */
+        .channels {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .channel-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            border-radius: 14px;
+            padding: 1rem 1.15rem;
+            text-decoration: none;
+            color: var(--text);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-btn:active {
+            transform: scale(0.98);
+        }
+
+        .channel-btn:hover {
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.15);
+            border-color: var(--green-light);
+        }
+
+        .channel-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .channel-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .channel-icon.telegram { background: #2AABEE; }
+        .channel-icon.whatsapp { background: #25D366; }
+        .channel-icon.whatsapp-group { background: #128C7E; }
+        .channel-icon.rubika { background: #E91E63; }
+        .channel-icon.eitaa { background: #0088CC; }
+
+        .channel-info {
+            flex: 1;
+        }
+
+        .channel-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .channel-desc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .channel-arrow {
+            color: var(--green-main);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        /* Special Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.1rem 0.9rem;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(46, 139, 87, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:active {
+            transform: scale(0.97);
+        }
+
+        .product-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--green-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .product-desc {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 1.8rem 1rem 1rem;
+            font-size: 0.78rem;
+            color: var(--text-light);
+        }
+
+        .footer .brand {
+            color: var(--green-main);
+            font-weight: 600;
+        }
+
+        /* Call Button Fixed */
+        .call-fab {
+            position: fixed;
+            bottom: 1.3rem;
+            left: 1.3rem;
+            background: var(--green-main);
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+            text-decoration: none;
+            z-index: 100;
+            transition: transform 0.2s;
+        }
+
+        .call-fab:active {
+            transform: scale(0.92);
+        }
+
+        /* Responsive */
+        @media (max-width: 380px) {
+            .header h1 { font-size: 1.35rem; }
+            .channel-btn { padding: 0.9rem 1rem; }
+            .products-grid { gap: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-circle">
+            <img src="logo-site.png" alt="لوگوی داروخانه گیاه پزشکی طلای سبز">
+        </div>
+        <h1>داروخانه گیاه پزشکی طلای سبز</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- About -->
+        <div class="about-card">
+            <p>
+                این صفحات تحت نظارت <strong>مهندس سعید زیدآبادی</strong>، دارای گواهی رتبه‌بندی مشاوران از سازمان نظام مهندسی کشاورزی و منابع طبیعی استان کرمان و رتبه سه در رشته تخصصی باغبانی، اداره می‌شود.
+            </p>
+
+            <div class="contact-box">
+                <div class="icon">📱</div>
+                <div class="info">
+                    <div class="label">ارتباط مستقیم با مهندس سعید زیدآبادی (کارشناس ارشد باغبانی)</div>
+                    <a href="tel:+989131783373" class="number">0913&nbsp;178&nbsp;3373</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Channels -->
+        <div class="section-title">عضویت در کانال‌ها و گروه‌ها</div>
+
+        <div class="channels">
+            <!-- Telegram -->
+            <a href="https://t.me/talayesabzsirjan" class="channel-btn" target="_blank" rel="noopener">
+                <div class="channel-icon telegram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.834.941z"/>
+                    </svg>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-name">کانال تلگرام</div>
+                    <div class="channel-desc">آخرین مطالب و اطلاعیه‌ها</div>
+                </div>
+                <div class="channel-arrow">←</div>
+            </a>
+
+            <!-- WhatsApp Channel -->
+            <a href="https://whatsapp.com/channel/0029Vaw90TA8vd1QiMtidi2J" class="channel-btn" target="_blank" rel="noopener">
+                <div class="channel-icon whatsapp">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-name">کانال واتساپ</div>
+                    <div class="channel-desc">اطلاعیه‌های رسمی فروشگاه</div>
+                </div>
+                <div class="channel-arrow">←</div>
+            </a>
+
+            <!-- WhatsApp Group -->
+            <a href="https://chat.whatsapp.com/F4ZojAoCWA0KErLYFNo88O?mode=gi_t" class="channel-btn" target="_blank" rel="noopener">
+                <div class="channel-icon whatsapp-group">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-name">گروه واتساپ</div>
+                    <div class="channel-desc">عضویت در گروه فروشگاه</div>
+                </div>
+                <div class="channel-arrow">←</div>
+            </a>
+
+            <!-- Rubika -->
+            <a href="https://rubika.ir/talayesabzsirjan" class="channel-btn" target="_blank" rel="noopener">
+                <div class="channel-icon rubika">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-name">کانال روبیکا</div>
+                    <div class="channel-desc">محتوای ویژه کاربران روبیکا</div>
+                </div>
+                <div class="channel-arrow">←</div>
+            </a>
+
+            <!-- Eitaa -->
+            <a href="https://eitaa.com/talayesabzsirjan" class="channel-btn" target="_blank" rel="noopener">
+                <div class="channel-icon eitaa">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.65-2.89 7.97-3.45 3.8-1.6 4.59-1.88 5.1-1.89.11 0 .37.03.53.17.14.12.18.28.2.45-.01.07-.01.2-.02.31z"/>
+                    </svg>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-name">کانال ایتا</div>
+                    <div class="channel-desc">کانال رسمی در پیام‌رسان ایتا</div>
+                </div>
+                <div class="channel-arrow">←</div>
+            </a>
+        </div>
+
+        <!-- Special Products -->
+        <div class="section-title">محصولات ویژه</div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-emoji">🧪</div>
+                <div class="product-name">انواع کود</div>
+                <div class="product-desc">تقویت خاک و گیاه</div>
+            </div>
+            <div class="product-card">
+                <div class="product-emoji">🛡️</div>
+                <div class="product-name">سموم گیاهی</div>
+                <div class="product-desc">کنترل آفات طبیعی</div>
+            </div>
+            <div class="product-card">
+                <div class="product-emoji">🌱</div>
+                <div class="product-name">انواع بذر</div>
+                <div class="product-desc">بذرهای باکیفیت</div>
+            </div>
+            <div class="product-card">
+                <div class="product-emoji">🔧</div>
+                <div class="product-name">ادوات کشاورزی</div>
+                <div class="product-desc">ابزار و تجهیزات</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div>© ۱۴۰۴ • <span class="brand">داروخانه گیاه پزشکی طلای سبز</span></div>
+            <div style="margin-top: 0.3rem;">سیرجان</div>
+        </div>
+    </div>
+
+    <!-- Floating Call Button -->
+    <a href="tel:+989131783373" class="call-fab" title="تماس مستقیم">📞</a>
+
+</body>
+</html>
